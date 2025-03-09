@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { to_do_backend } from 'declarations/to_do_backend';
+import { login } from './Logar'; // Import the login function
 import { Int } from '@dfinity/candid/lib/cjs/idl';
 
 function tarefas() {
@@ -10,7 +11,8 @@ function tarefas() {
   const [totalConcluidas, checkConcluidas] = useState(0);
 
   useEffect(() => {
-    consultarTarefas();
+    // Checa se está logado, se não estiver, chama a função de login
+    localStorage.getItem("isLoggedIn") === "false" ? login() : consultarTarefas();
   }, []);
 
   async function consultarTarefas(){

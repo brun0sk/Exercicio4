@@ -3,6 +3,7 @@ import Buffer "mo:base/Buffer";
 import Nat "mo:base/Nat";
 import Iter "mo:base/Iter";
 import Bool "mo:base/Bool";
+import Principal "mo:base/Principal";
 
  actor {
   
@@ -94,6 +95,10 @@ import Bool "mo:base/Bool";
           }
         };
         return andamento;
+      };
+
+      public shared(message) func get_principal_client() : async Text {
+        return "Principal: " # Principal.toText(message.caller) # "!";
       };
 
   };

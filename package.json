@@ -14,5 +14,9 @@
   "type": "module",
   "workspaces": [
     "src/to_do_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@dfinity/auth-client": "^2.3.0",
+    "react-router-dom": "^7.3.0"
+  }
 }
